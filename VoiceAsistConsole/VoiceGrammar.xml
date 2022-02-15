@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grammar version="1.0" xml:lang="ru-RU" root="Voice" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics-ms/1.0">
+
+  <rule id = "Voice" scope = "public">
+    <one-of>
+      
+      <item>
+        покажи <tag>$.cmd = "show"</tag>
+        <ruleref uri="#ShowObj"/><tag>$.showObj = $$</tag>
+      </item>
+      
+      <item>
+         открой <tag>$.cmd = "open"</tag>
+        <ruleref uri="#OpenObj"/><tag>$.openObj = $$</tag>
+      </item>
+
+      <item>
+        сколько <tag>$.cmd = "how"</tag>
+        <ruleref uri="#HowObj"/><tag>$.howObj = $$</tag>
+      </item>
+      
+    </one-of>
+  </rule>
+  
+  <rule id="ShowObj" scope ="private">
+    <one-of>
+      <item>блокнот <tag>$ = "notepad"</tag> </item>
+    </one-of>
+  </rule>
+  
+  <rule id="OpenObj" scope ="private">
+    <one-of>
+      <item>блокнот <tag>$ = "notepad"</tag> </item>
+      <item>калькулятор <tag>$ = "calc"</tag> </item>
+      <item>браузер <tag>$ = "browser"</tag> </item>
+    </one-of>
+  </rule>
+
+  <rule id="HowObj" scope ="private">
+    <one-of>
+      <item>
+        время <tag>$ = "time"</tag>
+      </item>
+    </one-of>
+  </rule>
+</grammar>
